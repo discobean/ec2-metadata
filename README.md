@@ -1,5 +1,13 @@
 # ec2-metadata
-Pulls AWS metadata to a file on disk
+Pulls AWS metadata to a file on disk in `/run/metadata/ec2`
+
+```
+core@ip-10-123-27-175 ~ $ cat /run/metadata/ec2 
+AWS_LOCAL_IPV4=10.123.27.175
+AWS_INSTANCE_ID=i-0d7559672bea4e1c7
+AWS_AVAILABILITY_ZONE=ap-southeast-2a
+AWS_REGION=ap-southeast-2
+```
 
 Example systemd configuration:
 
@@ -19,3 +27,4 @@ ExecStart=/usr/bin/docker run --name=ec2-metadata --net=host -v /run/metadata:/r
 [Install]
 WantedBy=multi-user.target
 ```
+
